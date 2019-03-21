@@ -15,6 +15,7 @@ public:
     analiza_szablonu();
 
     int ilosc_napisowych, ilosc_liczbowych, ilosc_znakowych, ilosc_logicznych;
+    string szablon, plik_zapisu;
 
 
     void Analiza(string nazPliku, int &Napis,int &Liczbowe, int &Znak,int &Logiczne);

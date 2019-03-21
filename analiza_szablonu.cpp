@@ -62,16 +62,16 @@ while (!pWe.eof())
 pWe.close();
 
 pWe.open("C:/szablon.txt");
-for(unsigned int i=0;i<ile_wierszy;i++) //analiza szablonu
+for(int i=0;i<ile_wierszy;i++) //analiza szablonu
 {
     pWe>>nazwa_podpola;
     getline(pWe,reszta_wiersza);
 
-    else if(reszta_wiersza==pole_napisowe)
+    if(reszta_wiersza==pole_napisowe)
     {
         ilosc_napisowych++;
     }
-    if(reszta_wiersza==pole_liczbowe)
+    else if(reszta_wiersza==pole_liczbowe)
     {
         ilosc_liczbowych++;
     }
@@ -89,6 +89,7 @@ for(unsigned int i=0;i<ile_wierszy;i++) //analiza szablonu
         cout<<"Blad w zapisie. Niezgodnosc z szablonem. Linijka numer: "<<i+1<<"\t";
         return;
     }
+
     if(nazwa_podpola.size()==0)
     {
         cout<<"Blad w nazwie podpola. Linijka numer: "<<i+1<<"\n";

@@ -14,13 +14,14 @@ using namespace std;
      int* num;
      char* ch;
      bool* log;
-     int ilosc_wyszukan;
+  /* int ilosc_wyszukan; */ //<------------------------------------------------------
      Pole* next;
  };
 
-    void stworzGlowe(Pole *&glowa, string plik); //zwraca adres adres nulla i napisow (glowy)
+    void stworzNapisowe(Pole *&glowa, string plik); //tworzy nulla i napisowe pole (glowy)
     void stworz_i_dodaj(Pole *glowa); //dolacza do glowy
-
+    void zapis (string plik, Pole *glowa, int ilosc_napisowych, int ilosc_liczbowych, int ilosc_znakowych, int ilosc_logicznych);
+    void odczyt (string plik_wyj, Pole *glowa, int ilosc_napisowych, int ilosc_liczbowych, int ilosc_znakowych, int ilosc_logicznych);
 
 
 
