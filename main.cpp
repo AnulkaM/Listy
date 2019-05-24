@@ -1,56 +1,98 @@
-   using namespace std;
+using namespace std;
 #include <iostream>
 #include "baza.h"
-
+#include "stery.h"
 int main()
 {
-    bool kolejny=1, again=1;
     Baza baza;
-
-    while(again)
-    {
-
-        cout<<"x"<<endl;
-        baza.nazwa_szablonu();
-        cout<<"x"<<endl;
-        baza.analizuj_i_stworz_napisowe();
-
-        cout<<"x"<<endl;
-        while(kolejny)
+     do
+     {
+        if(Stworz())
         {
-            baza.stworz_i_dodaj();
-            cout<<"Stworzyc kolejne podpole? Wpisz 1 lub 0."<<endl;
-            cin>>kolejny;
+            baza.nazwa_szablonu();
+            baza.analizuj_i_stworz_napisowe();
+            do
+            {
+                baza.wyswietl_opisowe();
+                baza.stworz_i_dodaj();
+            }
+            while(Kolejny());
+
+            if(Czyszczenie())
+            {
+                Clear();
+            }
+
+            if(Pokaz())
+            {
+                baza.pokaz();
+            }
+            if(Szukaj())
+            {
+                baza.szukaj();
+            }
+
+            if(Czyszczenie())
+            {
+                Clear();
+            }
+
+            if(Zapis())
+            {
+                baza.zapis();
+            }
+
+            if(Koniec())
+            {
+                return 0;
+            }
+        }
+        if(Odczyt())
+        {
+            baza.nazwa_plik_odczytu();
+            baza.odczyt();
+            baza.pokaz();
+
+            if(Kolejny())
+            {
+                baza.stworz_i_dodaj();
+            }
+            if(Szukaj())
+            {
+                baza.szukaj();
+            }
+            if(Czyszczenie())
+            {
+                Clear();
+            }
+
+            if(Pokaz())
+            {
+                baza.pokaz();
+            }
+
+            if(Czyszczenie())
+            {
+                Clear();
+            }
+
+            if(Zapis())
+            {
+                baza.zapis();
+            }
+
+            if(Koniec())
+            {
+                return 0;
+            }
         }
 
-        baza.pokaz();
 
-        break;
-
-        cout<<"x"<<endl;
-
-        baza.nazwa_p_zapisu();
-
-        cout<<"x"<<endl;
-
-        baza.zapis();
-
-        cout<<"x"<<endl;
-
-        baza.nazwa_plik_odczytu();
-
-        cout<<"x"<<endl;
-
-        baza.odczyt();
-
-        cout<<"x"<<endl;
-
-        baza.pokaz();
-
-        cout<<"Ponawiamy procedure dzialania programu od nowa? Wpisz 1 lub 0."<<endl;
     }
-
-
+    while(OdNowa());
+    Zakoncz();
 
     return 0;
 }
+
+

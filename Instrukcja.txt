@@ -1,0 +1,3 @@
+Temat projektu: "inteligentne listy",
+Autor: Jakub Stankiewicz,
+Grupa: MT-121.
